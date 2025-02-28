@@ -25,6 +25,11 @@ app.get("/message", async (c) => {
   return c.json(await messageService.getAllMessage());
 });
 
+app.get("poke/find/:name", (c) => {
+  const name = c.req.param("name");
+  return c.json({ name });
+});
+
 serve(
   {
     fetch: app.fetch,
